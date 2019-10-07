@@ -2,4 +2,4 @@ require "./deck"
 
 deck = Deck.new
 
-puts shuffle
+puts deck.shuffle
