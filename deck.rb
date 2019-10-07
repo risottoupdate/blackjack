@@ -1,9 +1,11 @@
 class Deck
 
+  
+
   # カードの初期設定
   def initialize
 
-    card = []
+    @card = []
 
     mk = ["spade", "Heart", "Dia", "Club"]
 
@@ -12,7 +14,7 @@ class Deck
     # カードの生成
     for i in(0..3)
       for k in(0..12)
-        card << mk[i] + num[k].to_s
+        @card << mk[i] + num[k].to_s
       end
     end
 
@@ -20,8 +22,8 @@ class Deck
 
   def shuffle
     # カードをシャッフル
-    card = card.shuffle
-    puts card
+    @card = @card.shuffle
+    puts @card
   end
 
 end
