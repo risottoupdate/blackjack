@@ -1,29 +1,28 @@
 class Deck
 
-  
-
   # カードの初期設定
   def initialize
 
-    @card = []
+    @card = {}
 
-    mk = ["spade", "Heart", "Dia", "Club"]
+    mk = ["スペード", "ハート", "ダイア", "クラブ"]
 
-    num = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q" ,"K"]
+    num = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q" ,"K"]
 
-    # カードの生成
-    for i in(0..3)
-      for k in(0..12)
-        @card << mk[i] + num[k].to_s
+    mk.each do |mark|
+      num.each do |number|
+        # 別のインスタンスを作成し、破壊的操作を回避
+        mark_remember = mark.dup
+        # マーク記号＋ナンバー
+        mark_remember.concat(number)
+        @card.merge!(mark_remember => number)
       end
     end
 
-  end
+    def shuffle
+      puts @card
+    end
 
-  def shuffle
-    # カードをシャッフル
-    @card = @card.shuffle
-    puts @card
   end
 
 end
