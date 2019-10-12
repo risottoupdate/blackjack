@@ -1,29 +1,35 @@
 class Deck
 
-  
-
-  # カードの初期設定
+  # カードデッキを作成し、シャッフルまで行う
   def initialize
+    # デッキの配列を生成
+    @cards = []
 
-    @card = []
+    mk = ["スペード", "ハート", "ダイア", "クラブ"]
+    num = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q" ,"K"]
 
-    mk = ["spade", "Heart", "Dia", "Club"]
-
-    num = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q" ,"K"]
-
-    # カードの生成
-    for i in(0..3)
-      for k in(0..12)
-        @card << mk[i] + num[k].to_s
+    mk.each do |mark|
+      num.each do |number|
+        # markとnumberの組み合わせを一つずつcardクラスに渡し、それぞれのcardオブジェクトを生成する
+        card = Card.new(mark, number)
+        # 生成したcardを配列に格納していく
+        @cards << card
       end
     end
 
+    # デッキをシャッフルする
+    @cards.shuffle!
   end
 
-  def shuffle
-    # カードをシャッフル
-    @card = @card.shuffle
-    puts @card
+  def draw
+    # 配列の最初の要素を抜き出す。最後から抜き出す場合はpop
+    @cards.shift
+  end
+
+  def view
+    @cards.each do |card|
+      puts card.show
+    end
   end
 
 end
