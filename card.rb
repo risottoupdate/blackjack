@@ -21,7 +21,6 @@ class Card
       # 数字は文字列として格納されているので、数値に変換して返す
       return @number.to_i
     end
-      
   end
 
 end

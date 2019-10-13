@@ -26,10 +26,4 @@ class Deck
     @cards.shift
   end
 
-  def view
-    @cards.each do |card|
-      puts card.show
-    end
-  end
-
 end
