@@ -26,15 +26,33 @@ class Player
 
     # 点数の初期化
     player_point = 0
+    count_a = 0
+    @count_11 = 0
 
     # 手札のカードを一枚ずつ確認して点数を計算していく
     @hands.each do |draw_card|
 
       # カードに対して、pointメソッドを用いて点数を確認。それを点数に足していく
       player_point += draw_card.point
-      #puts player_point
+      if draw_card.point == 0
+        count_a += 1
+      end
+
     end
+    count_a.times do |i|
+      if player_point <= 10
+        player_point += 11
+        @count_11 += 1
+      else
+        player_point += 1
+      end
+    end
+
     return player_point
+  end
+
+  def count_11
+    return @count_11
   end
 
   # カードを1枚引く
