@@ -16,7 +16,7 @@ class Card
     if @number == "J" || @number == "Q" || @number == "K"
       return 10
     elsif @number == "A"
-      return 1
+      return 0
     else
       # 数字は文字列として格納されているので、数値に変換して返す
       return @number.to_i
