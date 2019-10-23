@@ -6,7 +6,7 @@ require "./money"
 
 class Blackjack
 
-  def initialize
+  def start
     money = Money.new
 
     puts <<~text
@@ -188,7 +188,7 @@ class Blackjack
 
         continue = gets.chomp.to_i
         if continue == 1
-          
+
           puts <<~text
 
           ゲーム続行
