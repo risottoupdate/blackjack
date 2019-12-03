@@ -23,20 +23,8 @@ class Dealer
 
   end
 
-  # dealerの点数を表示
-  def point_dealer
-
-    # 点数の初期化
-    dealer_point = 0
-
-    # 手札のカードを一枚ずつ確認して点数を計算していく
-    @hands.each do |draw_card|
-
-      # カードに対して、pointメソッドを用いて点数を確認。それを点数に足していく
-      dealer_point += draw_card.point
-      #puts player_point
-    end
-    return dealer_point
+  def hands
+    @hands
   end
 
   # カードを1枚引く
